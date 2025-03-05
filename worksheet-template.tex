@@ -1,0 +1,57 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[bottom=2 cm, top=2 cm, left=2 cm, right=1.5 cm]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+
+\usepackage{fontspec}
+\setmainfont{Linux Biolinum O}
+
+\usepackage[colorlinks=true, breaklinks=true]{hyperref}
+%\usepackage{siunitx}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{parskip}
+\usepackage{comment}
+\usepackage{listings}
+\lstset{
+%	language=Python,
+	basicstyle=\ttfamily,
+	breaklines=true,
+	numbers=left,
+	numberstyle=\tiny,
+	frame=tb,
+	tabsize=3,
+	columns=fixed,
+	showstringspaces=false,
+	showtabs=false,
+	%keepspaces,
+	commentstyle=\color{gray},
+	keywordstyle=\color{orange}
+	}
+
+%\usepackage{algoritm2e}
+\usepackage{caption}
+
+\usepackage{fancyhdr}
+
+\title{\huge $title$\\ \Large $subtitle$}
+\author{Leon Rauschning}
+%\date{12/7/24}
+
+\fancyhead[R]{\footnotesize $author$}
+\fancyhead[C]{\sc $title$ – $subtitle$}
+\fancyhead[L]{\textit{Invisible No More}}
+
+% required with rmarkdown, see https://stackoverflow.com/q/41052687
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+%\setuphead [subsection] [sectionsegments=subsection]
+
+\begin{document}
+\pagestyle{fancy}
+\maketitle
+
+$body$
+
+\end{document}

@@ -1,0 +1,31 @@
+---
+title: "Worksheet 1"
+subtitle: "Deconstructing Graphs"
+author: "Leon Rauschning"
+output:
+  pdf_document:
+    latex_engine: lualatex
+    template: ./worksheet-template.tex
+    toc: false
+    number_sections: true
+  html_document:
+    toc: false
+    number_sections: true
+---
+
+```{R, show=FALSE}
+library(ggplot2)
+```
+
+
+# Task 1
+
+Here, have a cookie...
+
+## Subtask 1
+
+... and a figure!
+
+```{R}
+plot(hist(rnorm(100)))
+```
