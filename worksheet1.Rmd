@@ -1,6 +1,6 @@
 ---
 title: "Worksheet 1"
-subtitle: "Deconstructing Graphs"
+subtitle: "Deconstructing Plots"
 author: "Leon Rauschning"
 output:
   pdf_document:
@@ -13,12 +13,12 @@ output:
     number_sections: true
 ---
 
-```{R, show=FALSE}
+```{R, echo=FALSE}
 library(ggplot2)
 ```
 
 
-# Task 1
+# Geoms
 
 Here, have a cookie...
 
@@ -26,6 +26,31 @@ Here, have a cookie...
 
 ... and a figure!
 
-```{R}
-plot(hist(rnorm(100)))
+% format as gggrid?
+```{R, echo=FALSE}
+ggplot(mtcars) +
+	geom_bar(aes(x=wt))
+```
+
+```{R, echo=FALSE}
+ggplot(mtcars) +
+	geom_point(aes(x=wt, y=mpg))
+```
+
+```{R, echo=FALSE}
+#library(stringr)
+ggplot(mtcars) +
+	geom_boxplot(aes(as.factor(cyl), wt)) +
+	geom_point(aes(x=as.factor(cyl), y=wt, col=mpg, shape=rownames(mtcars)))
+```
+
+```{R, echo=FALSE}
+ggplot(mtcars) +
+	geom_label(aes(x=hp, y=cyl, label=rownames(mtcars)))
+	#geom_text(aes(x=hp, y=cyl, label=rownames(mtcars)), check_overlap=TRUE)
+```
+
+```{R, echo=FALSE}
+ggplot(iris) +
+	geom_spoke(aes(x=0, y=0, col=Species, angle=Petal.Width/Petal.Length, radius=Petal.Length))
 ```
