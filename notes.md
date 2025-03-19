@@ -8,6 +8,7 @@
 - talk about circos?
 - https://rdrr.io/snippets/
 
+
 # Plan
 1. brainstorming session on why you visualize?
     => exploratory vis
@@ -29,6 +30,7 @@
 - Link to documentation frequently
 - give fancy plot and dataset; ask to replicate it, then compare solutions?
 => maybe challenging for beginners
+- add compile script to self-link QR code on each worksheet?
 
 ## Idea Worksheet 2
 - Provide code and graphics
@@ -44,3 +46,4 @@
 - later: ask for full code
 - come up with some neat tricks
 - compare solutions
+- reimplement napoleon plot?
