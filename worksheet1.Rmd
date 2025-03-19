@@ -60,3 +60,14 @@ ggplot(mtcars) +
 ggplot(iris) +
 	geom_spoke(aes(x=0, y=0, col=Species, angle=Petal.Width/Petal.Length, radius=Petal.Length))
 ```
+
+```{R, echo=FALSE}
+ggplot(mtcars) +
+	geom_bar(aes(cyl))
+```
+
+```{R, echo=FALSE}
+ggplot(mtcars) +
+	geom_bar(aes(cyl)) +
+	coord_polar(theta="x")
+```
