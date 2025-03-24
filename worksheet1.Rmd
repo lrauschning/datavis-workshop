@@ -37,48 +37,35 @@ mtcars$cyl <- as.factor(mtcars$cyl)
 
 % format as gggrid?
 ```{R, echo=FALSE}
-ggplot(mtcars) +
-	geom_bar(aes(x=cyl))
+grid.arrange(
+	ggplot(mtcars) +
+		geom_bar(aes(x=cyl)),
+	ggplot(mtcars) +
+		geom_histogram(aes(wt)),
+	ggplot(mtcars) +
+		geom_point(aes(x=wt, y=mpg)),
+	ggplot(mtcars) +
+		geom_point(aes(x=wt, y=(4.54/161)/mpg)) +
+		ylab("l/100km")
+	)
 ```
-
 ```{R, echo=FALSE}
-ggplot(mtcars) +
-	geom_histogram(aes(wt))
-```
-
-```{R, echo=FALSE}
-ggplot(mtcars) +
-	geom_point(aes(x=wt, y=mpg))
-
-ggplot(mtcars) +
-	geom_point(aes(x=wt, y=(4.54/161)/mpg)) +
-	ylab("l/100km")
-```
-
-```{R, echo=FALSE}
-ggplot(mtcars) +
-	geom_boxplot(aes(cyl, wt)) +
-	geom_point(aes(x=cyl, y=wt, col=mpg, shape=brand))
-```
-
-```{R, echo=FALSE}
-ggplot(mtcars) +
-	geom_label(aes(x=hp, y=cyl, label=brand))
-	#geom_text(aes(x=hp, y=cyl, label=brand), check_overlap=TRUE)
+grid.arrange(
+	ggplot(mtcars) +
+		geom_boxplot(aes(cyl, wt)) +
+		geom_point(aes(x=cyl, y=wt, col=mpg, shape=brand)),
+	ggplot(mtcars) +
+		geom_label(aes(x=hp, y=cyl, label=brand)),
+		#geom_text(aes(x=hp, y=cyl, label=brand), check_overlap=TRUE),
+	ggplot(mtcars) +
+		geom_bar(aes(cyl)),
+	ggplot(mtcars) +
+		geom_bar(aes(cyl)) +
+		coord_polar(theta="x")
+		)
 ```
 
 ```{R, echo=FALSE}
 ggplot(iris) +
 	geom_spoke(aes(x=0, y=0, col=Species, angle=Petal.Width/Petal.Length, radius=Petal.Length))
-```
-
-```{R, echo=FALSE}
-ggplot(mtcars) +
-	geom_bar(aes(cyl))
-```
-
-```{R, echo=FALSE}
-ggplot(mtcars) +
-	geom_bar(aes(cyl)) +
-	coord_polar(theta="x")
 ```
