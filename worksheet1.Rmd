@@ -15,6 +15,7 @@ output:
 
 ```{R, echo=FALSE}
 library(ggplot2)
+library(gridExtra)
 ```
 
 ```{R, echo=FALSE}
@@ -22,6 +23,7 @@ library(ggplot2)
 library(stringr)
 mtcars$brand <- word(rownames(mtcars), 1)
 #mtcars$brand <- sapply(rownames(mtcars), function(x){ x[, 6]})
+mtcars$cyl <- as.factor(mtcars$cyl)
 ```
 
 
@@ -36,18 +38,27 @@ mtcars$brand <- word(rownames(mtcars), 1)
 % format as gggrid?
 ```{R, echo=FALSE}
 ggplot(mtcars) +
-	geom_bar(aes(x=wt))
+	geom_bar(aes(x=cyl))
+```
+
+```{R, echo=FALSE}
+ggplot(mtcars) +
+	geom_histogram(aes(wt))
 ```
 
 ```{R, echo=FALSE}
 ggplot(mtcars) +
 	geom_point(aes(x=wt, y=mpg))
+
+ggplot(mtcars) +
+	geom_point(aes(x=wt, y=(4.54/161)/mpg)) +
+	ylab("l/100km")
 ```
 
 ```{R, echo=FALSE}
 ggplot(mtcars) +
-	geom_boxplot(aes(as.factor(cyl), wt)) +
-	geom_point(aes(x=as.factor(cyl), y=wt, col=mpg, shape=brand))
+	geom_boxplot(aes(cyl, wt)) +
+	geom_point(aes(x=cyl, y=wt, col=mpg, shape=brand))
 ```
 
 ```{R, echo=FALSE}
