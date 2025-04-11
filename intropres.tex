@@ -2,7 +2,8 @@
 \usetheme{metropolis}
 
 \usepackage{fontspec}
-\setmainfont{Fira Sans}
+\setsansfont{Fira Sans}[BoldFont={Fira Sans Medium}]
+\setmainfont{Fira Sans}[BoldFont={Fira Sans Medium}]
 
 %\usepackage{polyglossia}
 %\setdefaultlanguage{german}
@@ -70,15 +71,92 @@
 
 \begin{frame}{Visual Communication}
 	Thinking of plotting as a form of communication allows us to draw an analogy to languages.\\
-	A \grey{formal} language can be fully described by specifying their \emph{grammar} and \emph{lexicon}.
+	A \gray{formal} language can be fully described by specifying their \emph{grammar} and \emph{lexicon}.
 \end{frame}
 
 \begin{frame}{Grammar of Graphics}
-
+	Why do we care to do this?\\
+	Formally defining a grammar allows us to
+	\pause
+	\begin{itemize}
+		\item Describe plots systematically
+		\item Understand plots we see
+		\item Translate our intentions to a plotting engine
+	\end{itemize}
+	\pause
+	It does not provide advice for plotting well!
 \end{frame}
 
 % next pres
 % explain different layers of the grammars
 % go into ggplot API 
+
+\begin{frame}{Grammar of Graphics: Components}
+	In the (layered) grammar of graphics, a plot consists of:
+	\begin{itemize}
+		\item Data, (Transformations)
+		\item Aesthetics/Mappings
+		\item Geometries
+		\item Stats
+		\item Scales
+		\item Coordinates
+	\end{itemize}
+	\pause
+	These components can be swapped or altered individually, and composed to make a plot.
+	In practice, many of these have sensible default values.
+\end{frame}
+
+\begin{frame}{Grammar of Graphics: Information flow}
+	%TODO check this
+	\begin{tikzpicture}
+		\node (data) at (-2, 0) {\Large Data};
+		\node (aes) at (0, 0) {\Large Aes};
+		\node (geom) at (2, 0) {\Large Geom};
+		\node (stats) at (4, 0) {\Large Stats};
+		\node (scales) at (6, 0) {\Large Scales};
+		\node (coords) at (8, 0) {\Large Coords};
+		\draw[->, thick] (data) -> (aes) -> (geom) -> (stats) -> (scales) -> (coords);
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Data}
+	\begin{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Stats}
+	\begin{itemize}
+		\item 
+		\item Usually aggregates data
+		\item May output new/other values
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Aesthetics/Mappings}
+	\begin{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Geometries}
+	\begin{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Scales}
+	\begin{itemize}
+		\item Describes the \emph{how} of mapping variables to aesthetics
+		\item Controls location of guides
+		\item Can be discrete/continuous, in number/colour/other spaces
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Coordinates}
+	\begin{itemize}
+		\item Maps scale values onto plotting coordinates
+		\item Commonly cartesian, polar, 3D
+	\end{itemize}
+\end{frame}
+
+
 
 \end{document}
