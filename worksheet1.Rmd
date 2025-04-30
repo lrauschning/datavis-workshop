@@ -35,18 +35,20 @@ mtcars$cyl <- as.factor(mtcars$cyl)
 
 ... and a figure!
 
-% format as gggrid?
 ```{R, echo=FALSE}
+# format as gggrid?
 grid.arrange(
 	ggplot(mtcars) +
 		geom_bar(aes(x=cyl)),
 	ggplot(mtcars) +
-		geom_histogram(aes(wt)),
+		geom_density(aes(wt)),
 	ggplot(mtcars) +
 		geom_point(aes(x=wt, y=mpg)),
 	ggplot(mtcars) +
-		geom_point(aes(x=wt, y=(4.54/161)/mpg)) +
-		ylab("l/100km")
+		geom_smooth(aes(x=wt, y=mpg))
+#	ggplot(mtcars) +
+#		geom_point(aes(x=wt, y=(4.54/161)/mpg)) +
+#		ylab("l/100km")
 	)
 ```
 ```{R, echo=FALSE}
