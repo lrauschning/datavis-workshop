@@ -81,10 +81,11 @@
 	\begin{itemize}
 		\item Describe plots systematically
 		\item Understand plots we see
+		\item Flexibly modify existing or invent new plots
 		\item Translate our intentions to a plotting engine
 	\end{itemize}
 	\pause
-	It does not provide advice for plotting well!
+	It does not provide advice for making beautiful or useful plots!
 \end{frame}
 
 % next pres
@@ -106,56 +107,97 @@
 	In practice, many of these have sensible default values.
 \end{frame}
 
-\begin{frame}{Grammar of Graphics: Information flow}
-	%TODO check this
-	\begin{tikzpicture}
-		\node (data) at (-2, 0) {\Large Data};
-		\node (aes) at (0, 0) {\Large Aes};
-		\node (geom) at (2, 0) {\Large Geom};
-		\node (stats) at (4, 0) {\Large Stats};
-		\node (scales) at (6, 0) {\Large Scales};
-		\node (coords) at (8, 0) {\Large Coords};
-		\draw[->, thick] (data) -> (aes) -> (geom) -> (stats) -> (scales) -> (coords);
-	\end{tikzpicture}
-\end{frame}
+%\begin{frame}{Grammar of Graphics: Information flow}
+%	%TODO check this
+%	\begin{tikzpicture}
+%		\node (data) at (-2, 0) {\Large Data};
+%		\node (aes) at (0, 0) {\Large Aes};
+%		\node (geom) at (2, 0) {\Large Geom};
+%		\node (stats) at (4, 0) {\Large Stats};
+%		\node (scales) at (6, 0) {\Large Scales};
+%		\node (coords) at (8, 0) {\Large Coords};
+%		\draw[->, thick] (data) -> (aes) -> (geom) -> (stats) -> (scales) -> (coords);
+%	\end{tikzpicture}
+%\end{frame}
 
 \begin{frame}{Data}
 	\begin{itemize}
+		\item \emph{Base} of the plot
+		\item A plot may integrate multiple datasets
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Stats}
+\begin{frame}{Stat(istics)}
 	\begin{itemize}
-		\item 
 		\item Usually aggregates data
 		\item May output new/other values
+		\gray{\item Has a default associated geom}
+			\pause
+		\item Examples:
+			\pause
+			\begin{itemize}
+				\item Identity
+				\item Count
+				\item Mean/Median
+				\item Smoothing, Regressions
+			\end{itemize}
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Aesthetics/Mappings}
+\begin{frame}{Geom(etry)}
 	\begin{itemize}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Geometries}
-	\begin{itemize}
+		\item Graphical primitives the plot is constructed from
+		\item May have different modifiable attributes
+		\gray{\item Has a default stat}
+			\pause
+		\item Examples:
+			\pause
+			\begin{itemize}
+				\item Points
+				\item Line
+				\item Bars
+				\item Boxes
+			\end{itemize}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Scales}
 	\begin{itemize}
 		\item Describes the \emph{how} of mapping variables to aesthetics
-		\item Controls location of guides
+		\item Controls of guides
 		\item Can be discrete/continuous, in number/colour/other spaces
+			\pause
+		\item Examples:
+			\pause
+			\begin{itemize}
+				\item Linear
+				\item Log
+				\item Various colourscales
+				\item Binning
+			\end{itemize}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Coordinates}
 	\begin{itemize}
 		\item Maps scale values onto plotting coordinates
+		\item Examples:
+			\pause
+			\begin{itemize}
+				\item Cartesian, 2D/3D
+				\item Polar
+			\end{itemize}
 		\item Commonly cartesian, polar, 3D
 	\end{itemize}
 \end{frame}
+
+\begin{frame}{Aesthetics/Mappings}
+	\begin{itemize}
+		{\bf \item Which variable gets plotted how after which transformation, and how?}
+		\item \emph{Glue} of ggplot
+	\end{itemize}
+\end{frame}
+
 
 
 
