@@ -76,5 +76,6 @@ You can again use `rdrr.io/snippets/` if you do not have R installed. Remember t
 
 ## What makes a diamond's price?
 
-Try to find out why a diamond is worth its price!
+Try to find out why a diamond is worth its price! Start by investigating the relationship between price and carat. Do other factors play a role?
+When plotting, think of how to best handle big datasets with a large spread in values!
 
