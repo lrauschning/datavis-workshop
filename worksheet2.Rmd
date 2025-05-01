@@ -1,0 +1,80 @@
+---
+title: "Worksheet 2"
+subtitle: "Assembling Plots"
+author: "Leon Rauschning"
+output:
+  pdf_document:
+    latex_engine: lualatex
+    template: ./worksheet-template.tex
+    toc: false
+    number_sections: true
+  html_document:
+    toc: false
+    number_sections: true
+---
+
+```{R, echo=FALSE}
+library(ggplot2)
+library(gridExtra)
+```
+
+After gaining an understanding of the grammar of graphics in the last worksheet, in this one we want to understand how the concept is implemented in `ggplot2`.
+`ggplot2` defines a lot of sensible defaults and shorthands that are in practice frequently used and can make the code a lot more concise and elegant.
+
+If you are looking for information about which default is associated with any grammar or stats, or about any other `ggplot2` function, the documentation at `ggplot2.tidyverse.org` is a very helpful resource.
+
+# Understanding and modifying plots
+
+Grab a partner, and take take a look at some of the plots below.
+You've already seen these in Worksheet 1. Remember what you observed earlier, and how this is reflected in the code that produces these plots.
+Below, there are some suggestions on how to modify these plots. If you don't have R installed, you can try this out online at `rdrr.io/snippets/`. Remember to import ggplot with `library(ggplot2)` before plotting!
+Feel free to also try other modifications or plot types and play around with the data!
+
+```{R}
+	ggplot(mtcars) +
+		geom_point(aes(x=wt, y=mpg))
+```
+1. Plot the horsepower (`hp`) instead of the fuel efficiency!
+2. Try setting the colours or shapes of the points to how many cylinders each car has -- which works best?
+3. Can you convert the plot to use litres per 100 km instead of miles per gallon?
+4. Which other geometries could be suitable to display this data? Try some out!
+
+```{R}
+	ggplot(mtcars) +
+		geom_bar(aes(x=1, fill=cyl))
+```
+
+1. What happens if you set the colour instead of the fill?
+2. These bars are all stacked. Can you find a way to plot them next to each other?
+3. Can you make a pie chart out of this plot?
+
+```{R}
+	ggplot(mtcars) +
+		geom_histogram(aes(wt), binwidth=0.5)
+```
+
+1. What happens as you change the binwidth or amount of bins?
+2. Can you display the distribution of other features in this plot as well? Try the amount of cylinders!
+3. Compare this plot to what you get with `geom_density`! What is the advantage of either?
+
+```{R}
+	ggplot(mtcars) +
+		geom_smooth(aes(x=wt, y=mpg)) +
+		geom_point(aes(x=wt, y=mpg))
+```
+
+1. There seems to be an association between the two plotted variables. How can you investigate it using ggplot?
+2. Do other variables in the dataset affect this association? Try adding them into the plot and have a look!
+
+
+# Designing new plots
+
+Grab a partner, and think about how to answer the questions given below by cleverly using one or multiple plots.
+Think about a visualization first, write it down and then try implementing it using ggplot.
+You can again use `rdrr.io/snippets/` if you do not have R installed. Remember to import ggplot with `library(ggplot2)` before plotting!
+
+
+## What makes a diamond's price?
+
+Try to find out why a diamond is worth its price!
+
