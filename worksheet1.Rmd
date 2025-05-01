@@ -55,7 +55,7 @@ Investigate which messages they communicate to a reader.
 
 ## `mtcars` plots
 
-```{R, echo=FALSE}
+```{R, echo=FALSE, fig.height=4}
 # format as gggrid?
 grid.arrange(
 	ggplot(mtcars) +
@@ -79,7 +79,7 @@ grid.arrange(
 
 ## `diamonds` plots
 
-```{R, echo=FALSE}
+```{R, echo=FALSE, fig.height=4}
 # format as gggrid?
 grid.arrange(
 	ggplot(diamonds) +
@@ -132,8 +132,10 @@ grid.arrange(
 
 # Napoleons plot in the grammar of graphics
 
-Below is reproduced a famous 19th century plot of Napoleons 1812-13 winter campaign by Charles Minard.
-This plot was originally drawn by hand and reproduced by lithography; nonetheless, it can be described using the grammar of graphics.
+Fig. 1 is a reproduction of a famous 19th century plot of Napoleons 1812-13 winter campaign by Charles Minard.
+This plot was originally drawn by hand and distributed by lithography; nonetheless, it can be described using the grammar of graphics.
+Find the components of this graph, the statistics computed on the raw data (number of troops and location in Napoleons army at different times, weather data) and how they relate to each other.
+Which other features are present in the graph, and how does it deviate from the grammar of graphics?
 
 
-![Plot of napoleons troop movement in the winter of 1812-13.](./napoleongraphic.png){width=50%, height=50%}
+![Plot of napoleons troop movement in the winter of 1812-13.](./napoleongraphic.png){width=30%, height=20%}
