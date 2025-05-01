@@ -34,28 +34,29 @@ Feel free to also try other modifications or plot types and play around with the
 	ggplot(mtcars) +
 		geom_point(aes(x=wt, y=mpg))
 ```
-1. Plot the horsepower (`hp`) instead of the fuel efficiency!
-2. Try setting the colours or shapes of the points to how many cylinders each car has -- which works best?
-3. Can you convert the plot to use litres per 100 km instead of miles per gallon?
-4. Which other geometries could be suitable to display this data? Try some out!
+- Plot the horsepower (`hp`) instead of the fuel efficiency!
+- Try setting the colours or shapes of the points to how many cylinders each car has -- which works best?
+- Can you convert the plot to use litres per 100 km instead of miles per gallon?
+- Which other geometries could be suitable to display this data? Try some out!
 
 ```{R}
 	ggplot(mtcars) +
-		geom_bar(aes(x=1, fill=cyl))
+		geom_bar(aes(x=1, group=cyl, fill=cyl))
 ```
 
-1. What happens if you set the colour instead of the fill?
-2. These bars are all stacked. Can you find a way to plot them next to each other?
-3. Can you make a pie chart out of this plot?
+- What happens if you set the colour instead of the fill?
+- The exact plot in Worksheet 1 looks a little bit different. What is the difference, and how can you make it look the same?
+- These bars are all stacked. Can you find a way to plot them next to each other?
+- Can you make a pie chart out of this plot?
 
 ```{R}
 	ggplot(mtcars) +
 		geom_histogram(aes(wt), binwidth=0.5)
 ```
 
-1. What happens as you change the binwidth or amount of bins?
-2. Can you display the distribution of other features in this plot as well? Try the amount of cylinders!
-3. Compare this plot to what you get with `geom_density`! What is the advantage of either?
+- What happens as you change the binwidth or amount of bins?
+- Can you display the distribution of other features in this plot as well? Try the amount of cylinders!
+- Compare this plot to what you get with `geom_density`! What is the advantage of either?
 
 ```{R}
 	ggplot(mtcars) +
@@ -63,8 +64,8 @@ Feel free to also try other modifications or plot types and play around with the
 		geom_point(aes(x=wt, y=mpg))
 ```
 
-1. There seems to be an association between the two plotted variables. How can you investigate it using ggplot?
-2. Do other variables in the dataset affect this association? Try adding them into the plot and have a look!
+- There seems to be an association between the two plotted variables. How can you investigate it using ggplot?
+- Do other variables in the dataset affect this association? Try adding them into the plot and have a look!
 
 
 # Designing new plots
@@ -73,9 +74,18 @@ Grab a partner, and think about how to answer the questions given below by cleve
 Think about a visualization first, write it down and then try implementing it using ggplot.
 You can again use `rdrr.io/snippets/` if you do not have R installed. Remember to import ggplot with `library(ggplot2)` before plotting!
 
+## Which car brand is the best?
+
+Which brand makes the best cars? Try to compare brands using different criteria, and assemble plots illustrating why a given brand is best or not ideal for each.
+For extracting the car's brand from its name, you can use the code given below:
+
+```{R}
+library(stringr)
+mtcars$brand <- word(rownames(mtcars), 1)
+```
 
 ## What makes a diamond's price?
 
 Try to find out why a diamond is worth its price! Start by investigating the relationship between price and carat. Do other factors play a role?
 When plotting, think of how to best handle big datasets with a large spread in values!
-
+ngk"k"
