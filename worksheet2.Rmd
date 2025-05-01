@@ -30,7 +30,8 @@ You've already seen these in Worksheet 1. Remember what you observed earlier, an
 Below, there are some suggestions on how to modify these plots. If you don't have R installed, you can try this out online at `rdrr.io/snippets/`. Remember to import ggplot with `library(ggplot2)` before plotting!
 Feel free to also try other modifications or plot types and play around with the data!
 
-```{R}
+## Plot 1
+```{R, fig.height=2}
 	ggplot(mtcars) +
 		geom_point(aes(x=wt, y=mpg))
 ```
@@ -39,7 +40,8 @@ Feel free to also try other modifications or plot types and play around with the
 - Can you convert the plot to use litres per 100 km instead of miles per gallon?
 - Which other geometries could be suitable to display this data? Try some out!
 
-```{R}
+## Plot 2
+```{R, fig.height=2, fig.width=2}
 	ggplot(mtcars) +
 		geom_bar(aes(x=1, group=cyl, fill=cyl))
 ```
@@ -49,7 +51,8 @@ Feel free to also try other modifications or plot types and play around with the
 - These bars are all stacked. Can you find a way to plot them next to each other?
 - Can you make a pie chart out of this plot?
 
-```{R}
+## Plot 3
+```{R, fig.height=2}
 	ggplot(mtcars) +
 		geom_histogram(aes(wt), binwidth=0.5)
 ```
@@ -58,7 +61,8 @@ Feel free to also try other modifications or plot types and play around with the
 - Can you display the distribution of other features in this plot as well? Try the amount of cylinders!
 - Compare this plot to what you get with `geom_density`! What is the advantage of either?
 
-```{R}
+## Plot 4
+```{R, fig.height=2}
 	ggplot(mtcars) +
 		geom_smooth(aes(x=wt, y=mpg)) +
 		geom_point(aes(x=wt, y=mpg))
