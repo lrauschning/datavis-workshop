@@ -92,7 +92,8 @@ grid.arrange(
 		geom_bar(aes(x=clarity, fill=clarity), width=1) +
 		coord_polar(theta="x"),
 	ggplot(diamonds) +
-		geom_violin(aes(price, x = clarity))
+		geom_violin(aes(price, x = clarity)) + 
+		scale_y_log10()
 )
 ```
 
@@ -128,3 +129,11 @@ grid.arrange(
 #ggplot(iris) +
 #	geom_spoke(aes(x=0, y=0, col=Species, angle=Petal.Width/Petal.Length, radius=Petal.Length))
 ```
+
+# Napoleons plot in the grammar of graphics
+
+Below is reproduced a famous 19th century plot of Napoleons 1812-13 winter campaign by Charles Minard.
+This plot was originally drawn by hand and reproduced by lithography; nonetheless, it can be described using the grammar of graphics.
+
+
+![Plot of napoleons troop movement in the winter of 1812-13.](./napoleongraphic.png){width=50%, height=50%}
