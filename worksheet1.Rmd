@@ -26,48 +26,105 @@ mtcars$brand <- word(rownames(mtcars), 1)
 mtcars$cyl <- as.factor(mtcars$cyl)
 ```
 
+# Some example datasets
 
-# Geoms
+In this workshop, we'll be using two common example datasets to illustrate data visualizations: the `mtcars` and `diamonds` datasets.
+Both are supplied by any standard installation of the R language.
 
+The mtcars dataset is a common small example dataset used for illustrating different plots.
+It contains the technical specifications of different car models by various manufacturers.
+Some lines of the dataset are given below, as it may be helpful to understanding some of the plots below.
 
+```{R}
+mtcars[1:10,]
+```
 
-## Subtask 1
+The diamonds dataset is another common example dataset. It is much bigger than the mtcars dataset.
+It contains data on the properties and auction price of many diamonds.
+Some rows are again
 
-... and a figure!
+```{R}
+diamonds[1:10,]
+```
+
+# Finding the components of a plot
+
+Grab a partner, and take a look at the following plots, produced from a common example dataset containing the technical specifications of different car models.
+List the visual primitives each plot is composed of, and which variables of the dataset are displayed in the plot.
+Investigate which messages they communicate to a reader.
+
+## `mtcars` plots
 
 ```{R, echo=FALSE}
 # format as gggrid?
 grid.arrange(
 	ggplot(mtcars) +
-		geom_bar(aes(x=cyl)),
-	ggplot(mtcars) +
-		geom_density(aes(wt)),
-	ggplot(mtcars) +
 		geom_point(aes(x=wt, y=mpg)),
 	ggplot(mtcars) +
-		geom_smooth(aes(x=wt, y=mpg))
+		geom_line(aes(x=wt, y=mpg)),
+	ggplot(mtcars) +
+		geom_bar(aes(x=1, fill=cyl)),
+	ggplot(mtcars) +
+		geom_point(aes(x=hp, y=disp, shape=cyl))
+#	ggplot(mtcars) +
+#		geom_bar(aes(gear)) +
+#		coord_polar(theta="x")
+#	ggplot(mtcars) +
+#		geom_rug(aes(x=wt, col=mpg))
 #	ggplot(mtcars) +
 #		geom_point(aes(x=wt, y=(4.54/161)/mpg)) +
 #		ylab("l/100km")
 	)
 ```
+
+## `diamonds` plots
+
+```{R, echo=FALSE}
+# format as gggrid?
+grid.arrange(
+	ggplot(diamonds) +
+		geom_bar(aes(x = 1, fill=clarity), width=1) +
+		coord_polar(theta="y"),
+	ggplot(diamonds) +
+		geom_bar(aes(x = 1, fill=clarity), width=1) +
+		coord_polar(theta="x"),
+	ggplot(diamonds) +
+		geom_bar(aes(x=clarity, fill=clarity), width=1) +
+		coord_polar(theta="x"),
+	ggplot(diamonds) +
+		geom_violin(aes(price, x = clarity))
+)
+```
+
+# Statistics in plotting
+
+Have a look at the plots below with your partner.
+Which statistics are computed from the dataset to make the plot, and which graphical components do they correspond to?
+Does this assignment make sense?
+
 ```{R, echo=FALSE}
 grid.arrange(
 	ggplot(mtcars) +
-		geom_boxplot(aes(cyl, wt)) +
-		geom_point(aes(x=cyl, y=wt, col=mpg, shape=brand)),
+		geom_histogram(aes(wt), binwidth=0.5),
 	ggplot(mtcars) +
-		geom_label(aes(x=hp, y=cyl, label=brand)),
+		geom_violin(aes(hp, x=cyl)),
+	ggplot(mtcars) +
+		geom_boxplot(aes(cyl, wt)) +
+		geom_point(aes(x=cyl, y=wt)),#, col=mpg)),#, shape=brand)),
+	ggplot(mtcars) +
+		geom_smooth(aes(x=wt, y=mpg)) +
+		geom_point(aes(x=wt, y=mpg)),
+	ggplot(mtcars) +
+		geom_text(aes(x=hp, y=qsec, label=brand), check_overlap=TRUE),
 		#geom_text(aes(x=hp, y=cyl, label=brand), check_overlap=TRUE),
 	ggplot(mtcars) +
-		geom_bar(aes(cyl)),
-	ggplot(mtcars) +
-		geom_bar(aes(cyl)) +
+		geom_smooth(aes(x=hp, y=disp), method='lm') +
+		geom_point(aes(x=hp, y=disp, col=cyl)) +
 		coord_polar(theta="x")
 		)
 ```
 
 ```{R, echo=FALSE}
-ggplot(iris) +
-	geom_spoke(aes(x=0, y=0, col=Species, angle=Petal.Width/Petal.Length, radius=Petal.Length))
+#ggplot(iris) +
+#	geom_spoke(aes(x=0, y=0, col=Species, angle=Petal.Width/Petal.Length, radius=Petal.Length))
 ```
